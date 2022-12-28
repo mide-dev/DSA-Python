@@ -76,3 +76,64 @@ def minmax(data):
 
 #  Write a short Python function that takes a positive integer n and returns
 #  the sum of the squares of all the positive integers smaller than n.
+
+def sum_of_squares(n):
+    result = 0
+    for i in range(n + 1):
+        result += i**2
+    print(result)
+    return result
+        
+# sum_of_squares(4)
+# sum_of_squares(5)
+
+#########################################
+
+# EXCERCISE 05
+
+# Give a single command that computes the sum from Exercise 04 rely-
+# ing on Python’s comprehension syntax and the built-in sum function
+
+sum_of_squares2 = lambda num : print(sum(num**2 for num in range(num + 1)))
+
+# sum_of_squares2(4)
+# sum_of_squares2(5)
+
+#########################################
+
+# EXCERCISE 06
+
+#  Write a short Python function that takes a positive integer n and returns
+#  the sum of the squares of all the odd positive integers smaller than n.
+
+def sum_of_odd_squares(n):
+    result = 0
+    for i in range(n + 1):
+        if i % 2 != 0:
+            result += i**2
+    print(result)
+    return result
+
+# sum_of_odd_squares(4)
+# sum_of_odd_squares(5)
+
+#########################################
+
+# EXCERCISE 07
+
+# Give a single command that computes the sum from Exercise R-1.6, rely
+# ing on Python’s comprehension syntax and the built-in sum function.
+
+sum_of_odd_squares2 = lambda n: print(sum(n**2 for n in range(n + 1) if n%2 != 0))
+
+# sum_of_odd_squares2(4)
+# sum_of_odd_squares2(5)
+
+#########################################
+
+# EXCERCISE 08
+
+# Python allows negative integers to be used as indices into a sequence,
+# such as a string. If string s has length n, and expression s[k] is used for in
+# dex −n ≤ k < 0, what is the equivalent index j ≥ 0 such that s[j] references
+# the same element?
