@@ -4,28 +4,28 @@ from collections.abc import Iterable
 
 
 # GPA CALCULATOR
-print( 'Welcome to the GPA calculator.' )
-print( 'Please enter all your letter grades, one per line.' )
-print( 'Enter a blank line to designate the end.' )
-# map from letter grade to point value
-points = {'A+' :4.0, 'A' :4.0, 'A-' :3.67, 'B+' :3.33, 'B':3.0, 'B-' :2.67,
-'C+' :2.33, 'C' :2.0, 'C' :1.67, 'D+' :1.33, 'D' :1.0, 'F' :0.0}
+def GPA_calc():
+    print( 'Welcome to the GPA calculator.' )
+    print( 'Please enter all your letter grades, one per line.' )
+    print( 'Enter a blank line to designate the end.' )
+    # map from letter grade to point value
+    points = {'A+' :4.0, 'A' :4.0, 'A-' :3.67, 'B+' :3.33, 'B':3.0, 'B-' :2.67,
+    'C+' :2.33, 'C' :2.0, 'C' :1.67, 'D+' :1.33, 'D' :1.0, 'F' :0.0}
 
-num_courses = 0
-total_points = 0
-done = False
-
-while not done:
-    grade = input('Enter grade:')   # read line from user
-    if grade == '':     # empty line was entered    
-        done = True
-    elif grade not in points:    # unrecognized grade entered
-        print(f'Unkown grade {grade} being ignored')
-    else:
-        num_courses += 1
-        total_points += points[grade]
-    if num_courses > 0: # avoid division by zero
-        print( 'Your GPA is {0:.3}'.format(total_points / num_courses))
+    num_courses = 0
+    total_points = 0
+    done = False
+    while not done:
+        grade = input('Enter grade:')   # read line from user
+        if grade == '':     # empty line was entered    
+            done = True
+        elif grade not in points:    # unrecognized grade entered
+            print(f'Unkown grade {grade} being ignored')
+        else:
+            num_courses += 1
+            total_points += points[grade]
+        if num_courses > 0: # avoid division by zero
+            print( 'Your GPA is {0:.3}'.format(total_points / num_courses))
         
         
 
@@ -63,19 +63,20 @@ def returnAge():
             break
             
 # generators and iterators
-
 def factors(n):
     result = []
     for i in range(1,n+1):
         if n % i == 0:
             result.append(i)
     return result
+
+
             
-def factors(n):
+def factors2(n):
     for i in range(1,n+1):
         if n % i == 0:
             yield i
-            
+
        
 # fibonacci with generators
 def fibonacci():
