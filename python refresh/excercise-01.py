@@ -182,3 +182,44 @@ sum_of_odd_squares2 = lambda n: print(sum(n**2 for n in range(n + 1) if n%2 != 0
 # the built-in range function, that return a random choice from the given
 # range. Using only the randrange function, implement your own version
 # of the choice function
+
+import random
+
+# my_list = ['bag','apple','orange','shoes','banana','rope','shell','snail','goat']
+
+# print(f'using inbuilt choice method: {random.choice(my_list)}')
+
+def my_choice(lst):
+    list_length = len(lst)
+    pick_random = random.randrange(0, list_length)
+    return lst[pick_random]
+
+# print(f'custom function: {my_choice(my_list)}')
+
+#########################################
+
+# EXCERCISE 13
+
+#  Write a pseudo-code description of a function that reverses a list of n
+# integers, so that the numbers are listed in the opposite order than they
+# were before, and compare this method to an equivalent Python function
+# for doing the same thing.
+
+'''
+This code reverses a list of any given integers
+
+function list_reverse(user-input-list)
+    take user-input-list and reverse its index i.e. user-input-list[::-1]
+    return the result 
+'''
+
+def list_reverse(input_list):
+    return input_list[::-1]
+
+#########################################
+
+# EXCERCISE 14
+
+#  Write a short Python function that takes a sequence of integer values and
+# determines if there is a distinct pair of numbers in the sequence whose
+# product is odd.
