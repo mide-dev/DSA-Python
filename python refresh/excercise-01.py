@@ -137,3 +137,48 @@ sum_of_odd_squares2 = lambda n: print(sum(n**2 for n in range(n + 1) if n%2 != 0
 # such as a string. If string s has length n, and expression s[k] is used for in
 # dex −n ≤ k < 0, what is the equivalent index j ≥ 0 such that s[j] references
 # the same element?
+
+# s = [1,2,3]
+# k = -1
+# print(s[k])
+
+# j = len(s) - 1
+# print(s[j])
+
+#########################################
+
+# EXCERCISE 09
+
+# What parameters should be sent to the range constructor, to produce a
+# range with values 50, 60, 70, 80?
+
+# range1 = [i for i in range(50,81,10)]
+
+#########################################
+
+# EXCERCISE 10
+
+# What parameters should be sent to the range constructor, to produce a
+# range with values 8, 6, 4, 2, 0, −2, −4, −6, −8?
+    
+# range2 = [i for i in range(8,-9,-2)]
+
+#########################################
+
+# EXCERCISE 11
+
+# Demonstrate how to use Python’s list comprehension syntax to produce
+# the list [1, 2, 4, 8, 16, 32, 64, 128, 256].
+
+# generateList = [pow(2,i) for i in range(9)]
+
+#########################################
+
+# EXCERCISE 12
+
+#  Python’s random module includes a function choice(data) that returns a
+# random element from a non-empty sequence. The random module includes
+#  a more basic function randrange, with parameterization similar to
+# the built-in range function, that return a random choice from the given
+# range. Using only the randrange function, implement your own version
+# of the choice function
