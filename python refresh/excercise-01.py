@@ -138,11 +138,11 @@ sum_of_odd_squares2 = lambda n: print(sum(n**2 for n in range(n + 1) if n%2 != 0
 # dex −n ≤ k < 0, what is the equivalent index j ≥ 0 such that s[j] references
 # the same element?
 
-# s = [1,2,3]
-# k = -1
+s = [1,2,3]
+k = -1
 # print(s[k])
 
-# j = len(s) - 1
+j = len(s) - 1
 # print(s[j])
 
 #########################################
@@ -152,7 +152,7 @@ sum_of_odd_squares2 = lambda n: print(sum(n**2 for n in range(n + 1) if n%2 != 0
 # What parameters should be sent to the range constructor, to produce a
 # range with values 50, 60, 70, 80?
 
-# range1 = [i for i in range(50,81,10)]
+range1 = [i for i in range(50,81,10)]
 
 #########################################
 
@@ -161,7 +161,7 @@ sum_of_odd_squares2 = lambda n: print(sum(n**2 for n in range(n + 1) if n%2 != 0
 # What parameters should be sent to the range constructor, to produce a
 # range with values 8, 6, 4, 2, 0, −2, −4, −6, −8?
     
-# range2 = [i for i in range(8,-9,-2)]
+range2 = [i for i in range(8,-9,-2)]
 
 #########################################
 
@@ -170,7 +170,7 @@ sum_of_odd_squares2 = lambda n: print(sum(n**2 for n in range(n + 1) if n%2 != 0
 # Demonstrate how to use Python’s list comprehension syntax to produce
 # the list [1, 2, 4, 8, 16, 32, 64, 128, 256].
 
-# generateList = [pow(2,i) for i in range(9)]
+generateList = [pow(2,i) for i in range(9)]
 
 #########################################
 
@@ -185,15 +185,14 @@ sum_of_odd_squares2 = lambda n: print(sum(n**2 for n in range(n + 1) if n%2 != 0
 
 import random
 
-# my_list = ['bag','apple','orange','shoes','banana','rope','shell','snail','goat']
-
-# print(f'using inbuilt choice method: {random.choice(my_list)}')
+my_list = ['bag','apple','orange','shoes','banana','rope','shell','snail','goat']
 
 def my_choice(lst):
     list_length = len(lst)
     pick_random = random.randrange(0, list_length)
     return lst[pick_random]
 
+# print(f'using inbuilt choice method: {random.choice(my_list)}')
 # print(f'custom function: {my_choice(my_list)}')
 
 #########################################
@@ -223,3 +222,35 @@ def list_reverse(input_list):
 #  Write a short Python function that takes a sequence of integer values and
 # determines if there is a distinct pair of numbers in the sequence whose
 # product is odd.
+
+def detect_odd(lst):
+    check_for_duplicates = []
+    
+    for num in lst:
+        for val in lst:
+            # prevent multiplying a number with itself
+            if num == val:
+                continue
+            # calculate the product of every pair in the sequence
+            product = num * val
+            # check if product is odd
+            if product % 2 != 0:     
+                # check if product as been added by a previous pair
+                # to remove redundancy i.e. (1 * 3) is same as (3 * 1)
+                if product in check_for_duplicates:
+                    continue
+                # if product is odd and there are no duplicates
+                # store the product to check against future duplicate and print the result
+                else:
+                    check_for_duplicates.append(product)
+                    print(f'{num} * {val} gives {product} which is odd')
+            
+# seq = [1,2, 9,3,4, 11, 7, 5]
+# detect_odd(seq)
+    
+#########################################
+
+# EXCERCISE 15
+
+#  Write a Python function that takes a sequence of numbers and determines
+# if all the numbers are different from each other (that is, they are distinct).
