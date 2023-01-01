@@ -243,7 +243,7 @@ def detect_odd(lst):
                 # store the product to check against future duplicate and print the result
                 else:
                     check_for_duplicates.append(product)
-                    print(f'{num} * {val} gives {product} which is odd')
+                    print(f'{num} * {val} equals {product} which is odd')
             
 seq = [1,2, 9,3,4, 11, 7, 5]
 # detect_odd(seq)
@@ -291,7 +291,7 @@ def is_distict(seq):
 # the list [0, 2, 6, 12, 20, 30, 42, 56, 72, 90].
 
 lst_comp = [num * (num+1) for num in range(10)]
-print(lst_comp)
+# print(lst_comp)
 
 #########################################
 
@@ -300,3 +300,51 @@ print(lst_comp)
 # Demonstrate how to use Python’s list comprehension syntax to produce
 # the list [ a , b , c , ..., z ], but without having to type all 26 such
 # characters literally.
+
+import string
+
+alphabet = [letter for letter in string.ascii_lowercase]
+# print(alphabet)
+
+#########################################
+
+# EXCERCISE 20
+
+#  Python’s random module includes a function shuffle(data) that accepts a
+# list of elements and randomly reorders the elements so that each possible 
+# order occurs with equal probability. The random module includes a
+# more basic function randint(a, b) that returns a uniformly random integer
+# from a to b (including both endpoints). Using only the randint function,
+# implement your own version of the shuffle function.
+
+import random
+
+shuffle_test = [1,2,3,4,5,6,7,8,9]
+# random.shuffle(shuffle_test)
+# list.sort(shuffle_test)
+
+
+def shuffle(data):
+    # store user input
+    my_data = data
+    shuffled_list = []
+    # length of user list is greater than zero only if list still contains element(s)
+    while len(my_data) != 0:
+        # choose a random integer with respect to input list current length
+        rand = random.randint(0, len(my_data) - 1)
+        # use the random intger as index to pick an item on input list 
+        # append the item to shuffled list
+        shuffled_list.append(my_data[rand])
+        # remove the item from input list
+        my_data.pop(rand)
+    return shuffled_list
+
+# print(shuffle(shuffle_test))
+
+#########################################
+
+# EXCERCISE 21
+
+#  Write a Python program that repeatedly reads lines from standard input
+# until an EOFError is raised, and then outputs those lines in reverse order
+# (a user can indicate end of input by typing ctrl-D).
