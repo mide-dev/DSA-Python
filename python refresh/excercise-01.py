@@ -6,6 +6,7 @@
 # integer i, and False otherwise
 
 # a mutiple is true if n divided by m gives remainder 0.
+import re
 import string
 import random
 
@@ -227,7 +228,7 @@ This code reverses a list of any given integers
 
 function list_reverse(user-input-list)
     take user-input-list and reverse its index i.e. user-input-list[::-1]
-    return the result 
+    return the result
 '''
 
 
@@ -392,3 +393,100 @@ def revered_input():
 # Write a short Python program that takes two arrays a and b of length n
 # storing int values, and returns the dot product of a and b. That is, it returns
 # an array c of length n such that c[i] = a[i] · b[i], for i = 0,...,n−1.
+
+
+def get_dot_product(a, b):
+    c = []
+    if len(a) != len(b):
+        print('Arrays have to be of equal size')
+        return
+    for i in range(len(a)):
+        result = a[i] * b[i]
+        c.append(result)
+    print(c)
+    return c
+
+
+# get_dot_product([1, 2, 3], [1, 2, 3])
+
+#########################################
+
+# EXCERCISE 23
+
+# Give an example of a Python code fragment that attempts to write an ele
+# ment to a list based on an index that may be out of bounds. If that index
+# is out of bounds, the program should catch the exception that results, and
+# print the following error message:
+# “Don’t try buffer overflow attacks in Python!”
+
+def out_of_bounds(data):
+    lst = list('I am in love with ayo'.split(' '))
+
+    try:
+        lst[7] = data
+    except IndexError:
+        print("Don’t try buffer overflow attacks in Python!")
+
+
+# out_of_bounds('ds')
+
+#########################################
+
+# EXCERCISE 24
+
+#  Write a short Python function that counts the number of vowels in a given
+# character string.
+
+def count_vowels(str):
+    vowels = list('aeiou')
+    vowel_count = 0
+    split_string = list(str)
+
+    for str in split_string:
+        if str in vowels:
+            vowel_count += 1
+    print(vowel_count)
+    return vowel_count
+
+# count_vowels('i love you')
+
+#########################################
+
+# EXCERCISE 25
+
+
+#  Write a short Python function that takes a string s, representing a sentence,
+# and returns a copy of the string with all punctuation removed. For exam
+# ple, if given the string "Let s try, Mike.", this function would return
+# "Lets try Mike".
+
+
+def remove_punctuations(s):
+    # regex that match all punctuations
+    pattern = r'[^\w\s]'
+    # store punctuations in sentence as a list
+    punctuation = re.findall(pattern, s)
+    # split each characters in s into a list
+    sentence = list(s)
+    remove_punc = []
+    # iterate through the splitted list and append its alphabetical
+    # letters in a new list
+    for letter in sentence:
+        if letter in punctuation:
+            continue
+        remove_punc.append(letter)
+    # join the list back into a sentence and return it
+    new_str = ''.join(remove_punc)
+    print(new_str)
+    return new_str
+
+
+# remove_punctuations("Let's try, Mike.")
+
+#########################################
+
+# EXCERCISE 26
+
+#  Write a short program that takes as input three integers, a, b, and c, from
+# the console and determines if they can be used in a correct arithmetic
+# formula (in the given order), like “a+b = c,” “a = b−c,” or “a ∗ b = c.”
